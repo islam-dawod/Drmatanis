@@ -4,10 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Facial Aesthetics | DR. MOEEN AESTHETICS – ד"ר מטאנס מועין</title>
-<meta name="description" content="רפואה אסתטית לפנים בהובלת ד״ר מטאנס מועין (DR. MOEEN AESTHETICS): בוטוקס, חומצה היאלורונית, עיצוב שפתיים, פיסול פנים ואף ומילוי קמטים — בהתאמה אישית ולאחר ייעוץ מקצועי." />
+<meta name="description" content="רפואה אסתטית לפנים בהובלת ד״ר מטאנס מועין (DR. MOEEN AESTHETICS): הזרקות להחלקת קמטים, חומצה היאלורונית, עיצוב שפתיים, פיסול פנים ואף ומילוי קמטים ושקעים — בהתאמה אישית ולאחר ייעוץ מקצועי." />
 <meta name="robots" content="index, follow" />
 <meta property="og:title" content="Facial Aesthetics | DR. MOEEN AESTHETICS – ד״ר מטאנס מועין" />
-<meta property="og:description" content="בוטוקס · חומצה היאלורונית · עיצוב שפתיים · פיסול פנים ואף · מילוי קמטים ושקעים." />
+<meta property="og:description" content="הזרקות להחלקת קמטים · חומצה היאלורונית · עיצוב שפתיים · פיסול פנים ואף · מילוי קמטים ושקעים." />
 <meta property="og:type" content="website" />
 <meta property="og:image" content="assets/hero-doctor.jpg" />
 <link rel="icon" href="assets/logo.png" />
@@ -57,8 +57,8 @@
 
   /* ===== buttons ===== */
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 30px;border-radius:999px;font-weight:600;font-size:16px;cursor:pointer;border:1.5px solid transparent;transition:.22s ease;white-space:nowrap;letter-spacing:.3px}
-  .btn-gold{background:var(--gold);color:#fff}
-  .btn-gold:hover{background:var(--gold-deep);transform:translateY(-1px)}
+  .btn-gold{background:var(--gold);color:var(--ink)}
+  .btn-gold:hover{background:var(--gold-soft);transform:translateY(-1px)}
   .btn-dark{background:var(--ink);color:#fff}
   .btn-dark:hover{background:#000;transform:translateY(-1px)}
   .btn-outline{background:transparent;color:var(--ink);border-color:var(--ink)}
@@ -143,6 +143,11 @@
   .field input{width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;font:inherit;font-size:16px;background:#fff;transition:.15s}
   .field input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-tint)}
   .contact-card .btn{width:100%;font-size:17px;padding:16px}
+  .consent{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);margin:4px 0 18px;line-height:1.5;cursor:pointer}
+  .consent input{width:18px;height:18px;margin-top:2px;flex:none;accent-color:var(--gold-deep);cursor:pointer}
+  .consent a{color:var(--gold-deep);font-weight:600;text-decoration:underline}
+  /* accessibility: visible keyboard focus */
+  a:focus-visible,button:focus-visible,input:focus-visible,.consent input:focus-visible{outline:2px solid var(--gold-deep);outline-offset:2px}
   .or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:13px;margin:14px 0}
   .or::before,.or::after{content:"";height:1px;background:var(--line);flex:1}
   .contact-info h3{font-size:22px;margin-bottom:16px;font-weight:600}
@@ -154,6 +159,10 @@
   /* ===== footer ===== */
   footer{background:var(--ink);color:#b9bbc2;padding-block:44px;font-size:14px}
   footer .flogo img{height:52px;width:auto;filter:brightness(0) invert(1);opacity:.92}
+  footer .flinks{margin-top:16px;font-size:14px}
+  footer .flinks a{color:#e6e2da;font-weight:500}
+  footer .flinks a:hover{color:#fff;text-decoration:underline}
+  footer .flinks span{margin-inline:8px;color:#5b5d64}
   footer .legal{max-width:680px;color:#8a8c93;font-size:12.5px;line-height:1.7;margin-top:16px}
 
   /* ===== floating whatsapp ===== */
@@ -206,7 +215,7 @@
       <h1><span class="serif">Facial Aesthetics</span>
         <span class="he">אסתטיקת פנים בעיצוב טבעי ומדויק</span>
       </h1>
-      <p class="lead">בוטוקס, חומצה היאלורונית, עיצוב שפתיים ופיסול פנים — בהתאמה אישית לכל מטופל, לאחר ייעוץ ובדיקה מקצועית.</p>
+      <p class="lead">הזרקות להחלקת קמטים, חומצה היאלורונית, עיצוב שפתיים ופיסול פנים — בהתאמה אישית לכל מטופל, לאחר ייעוץ ובדיקה מקצועית.</p>
       <div class="cta">
         <a class="btn btn-gold" href="#contact">קביעת ייעוץ</a>
         <a class="btn btn-outline" href="https://wa.me/972723945160?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%95%D7%A2%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%91%D7%A0%D7%95%D7%A9%D7%90%20%D7%90%D7%A1%D7%AA%D7%98%D7%99%D7%A7%D7%AA%20%D7%A4%D7%A0%D7%99%D7%9D" target="_blank" rel="noopener">
@@ -240,7 +249,7 @@
       <p>מגוון טיפולי הזרקה ועיצוב לפנים, המבוצעים על-ידי ד״ר מטאנס בחומרים מאושרים.</p>
     </div>
     <div class="t-grid">
-      <div class="t-card"><div class="ph"><img src="assets/face-botox.webp" alt="הזרקות בוטוקס" loading="lazy"></div><h3>הזרקות בוטוקס</h3><p>ריכוך קמטי הבעה במצח ובאזור העיניים</p></div>
+      <div class="t-card"><div class="ph"><img src="assets/face-antiwrinkle.webp" alt="הזרקות להחלקת קמטים" loading="lazy"></div><h3>הזרקות להחלקת קמטים</h3><p>החלקת קמטי הבעה במצח ובאזור העיניים</p></div>
       <div class="t-card"><div class="ph"><img src="assets/face-hyaluronic.webp" alt="חומצה היאלורונית" loading="lazy"></div><h3>חומצה היאלורונית</h3><p>נפח, לחות ומראה רענן לעור הפנים</p></div>
       <div class="t-card"><div class="ph"><img src="assets/face-lips.webp" alt="עיצוב ועיבוי שפתיים" loading="lazy"></div><h3>עיצוב שפתיים</h3><p>עיבוי ועיצוב בהתאמה למבנה הפנים</p></div>
       <div class="t-card"><div class="ph"><img src="assets/face-sculpt.webp" alt="פיסול פנים" loading="lazy"></div><h3>פיסול פנים</h3><p>הדגשת קווי המתאר והרמוניה בפנים</p></div>
@@ -298,9 +307,9 @@
       <div class="role">רפואה אסתטית · אסתטיקה וקוסמטיקה רפואית</div>
       <p>ד״ר מטאנס מועין, בוגר אוניברסיטת רגנסבורג בגרמניה, בעל ניסיון של מעל 11 שנים בתחום הרפואה האסתטית. מעניק לכל מטופל תוכנית טיפול המותאמת אישית, לאחר בדיקה וייעוץ מקצועי.</p>
       <ul class="creds">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> מדריך ומרצה בינלאומי לאסתטיקה רפואית מטעם Bioxis Pharmaceuticals (צרפת)</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> מדריך ומרצה בינלאומי בתחום הרפואה האסתטית</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> מרצה מטעם הסתדרות רפואת השיניים בישראל בקורסי אסתטיקה</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> זוכה פרס עולמי ב״פיסול פנים״ ללא ניתוח מטעם Teoxane (שווייץ)</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> זוכה פרס עולמי ב״פיסול פנים״ ללא ניתוח</li>
       </ul>
       <div style="margin-top:26px"><a class="btn btn-gold" href="#contact">לתיאום פגישת ייעוץ</a></div>
     </div>
@@ -336,13 +345,17 @@
           <label for="phone">טלפון</label>
           <input type="tel" id="phone" name="phone" placeholder="05X-XXXXXXX" required autocomplete="tel" inputmode="tel" />
         </div>
+        <label class="consent">
+          <input type="checkbox" id="consent" name="consent" required />
+          <span>קראתי את <a href="privacy.html" target="_blank" rel="noopener">מדיניות הפרטיות</a> ואני מאשר/ת יצירת קשר בנוגע לפנייתי.</span>
+        </label>
         <button type="submit" class="btn btn-gold">לתיאום פגישת ייעוץ</button>
         <div class="or">או</div>
         <a class="btn btn-dark" href="https://wa.me/972723945160?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%95%D7%A2%20%D7%99%D7%99%D7%A2%D7%95%D7%A5%20%D7%91%D7%A0%D7%95%D7%A9%D7%90%20%D7%90%D7%A1%D7%AA%D7%98%D7%99%D7%A7%D7%AA%20%D7%A4%D7%A0%D7%99%D7%9D" target="_blank" rel="noopener" style="width:100%">
           <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.767.967-.94 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
           פנייה בוואטסאפ
         </a>
-        <p class="privacy">בשליחת הפרטים אני מאשר/ת יצירת קשר בנוגע לפנייתי. הפרטים לא יועברו לצד שלישי.</p>
+        <p class="privacy">הפרטים ישמשו לתיאום ייעוץ בלבד ולא יועברו לצד שלישי.</p>
       </form>
     </div>
     <div class="contact-info">
@@ -371,6 +384,13 @@
 <footer>
   <div class="wrap" style="display:flex;flex-direction:column;align-items:flex-start">
     <div class="flogo"><img src="assets/logo.png" alt="DR. MOEEN AESTHETICS" /></div>
+    <nav class="flinks" aria-label="עמודים משפטיים">
+      <a href="privacy.html">מדיניות פרטיות</a>
+      <span aria-hidden="true">·</span>
+      <a href="terms.html">תנאי שימוש</a>
+      <span aria-hidden="true">·</span>
+      <a href="accessibility.html">הצהרת נגישות</a>
+    </nav>
     <p class="legal">
       התמונות מוצגות להמחשה בלבד. אין לראות בתוכן זה המלצה או התחייבות לביצוע הליך רפואי כלשהו. כל טיפול מותנה בפגישת ייעוץ ובדיקה מקצועית מקדימה, והתוצאות עשויות להשתנות בין מטופל למטופל. החומרים בהם נעשה שימוש מאושרים על-ידי משרד הבריאות ורשות התרופות האמריקאית (FDA). © ד״ר מטאנס מועין — DR. MOEEN AESTHETICS.
     </p>
@@ -387,7 +407,9 @@
     e.preventDefault();
     var name = document.getElementById('name').value.trim();
     var phone = document.getElementById('phone').value.trim();
+    var consent = document.getElementById('consent').checked;
     if(!name || !phone){ return; }
+    if(!consent){ document.getElementById('consent').focus(); return; }
     var msg = 'היי, שמי ' + name + ' (טלפון: ' + phone + '). אשמח לתאם פגישת ייעוץ בנושא אסתטיקת פנים.';
     window.open('https://wa.me/972723945160?text=' + encodeURIComponent(msg), '_blank');
   });
