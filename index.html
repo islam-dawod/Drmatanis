@@ -102,11 +102,13 @@
   .section-head p{color:var(--muted);margin-top:12px;font-size:17px}
 
   /* ===== gallery ===== */
-  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-  .gallery figure{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--gold-tint);box-shadow:0 10px 30px -20px rgba(0,0,0,.4)}
-  .gallery img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:.4s ease}
-  .gallery figure:hover img{transform:scale(1.06)}
-  .gallery figcaption{
+  .gallery-wide{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:16px}
+  .gallery-portrait{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .gallery-wide figure,.gallery-portrait figure{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--gold-tint);box-shadow:0 10px 30px -20px rgba(0,0,0,.4)}
+  .gallery-wide img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10;transition:.4s ease}
+  .gallery-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 30%;aspect-ratio:3/4;transition:.4s ease}
+  .gallery-wide figure:hover img,.gallery-portrait figure:hover img{transform:scale(1.05)}
+  .gallery-wide figcaption,.gallery-portrait figcaption{
     position:absolute;inset-inline:0;bottom:0;padding:26px 14px 12px;
     background:linear-gradient(180deg,transparent,rgba(20,20,20,.72));
     color:#fff;font-size:14px;font-weight:600;
@@ -188,7 +190,7 @@
     body{font-size:17px}
     .hero .wrap{grid-template-columns:1fr;gap:40px;padding-block:44px}
     .hero-visual{order:-1;max-width:440px;margin-inline:auto}
-    .gallery{grid-template-columns:repeat(2,1fr)}
+    .gallery-portrait{grid-template-columns:repeat(2,1fr)}
     .features{grid-template-columns:repeat(2,1fr)}
     .doctor .wrap{grid-template-columns:1fr;gap:30px}
     .doctor-img{max-width:360px;margin-inline:auto}
@@ -197,7 +199,8 @@
     .top-phone{display:none}
   }
   @media(max-width:520px){
-    .gallery{grid-template-columns:1fr 1fr;gap:10px}
+    .gallery-wide{grid-template-columns:1fr}
+    .gallery-portrait{gap:10px}
     .hero .cta{flex-direction:column}
     .hero .cta .btn{width:100%}
   }
@@ -241,7 +244,7 @@
       </div>
     </div>
     <div class="hero-visual">
-      <img src="assets/doctor-portrait.jpg" alt="ד״ר מטאנס מועין במרפאת DMC" fetchpriority="high" />
+      <img src="assets/hero-doctor.jpg" alt="ד״ר מטאנס מועין במרפאת DMC" fetchpriority="high" />
       <div class="hero-badge">
         <span class="num">DMC</span>
         <small>מרכז לאסתטיקת השיניים והפנים · חיפה והצפון</small>
@@ -255,19 +258,24 @@
   <div class="wrap">
     <div class="section-head">
       <div class="eyebrow">גלריה</div>
-      <h2>חיוכים וטיפולים במרפאה</h2>
-      <p>מבחר מתחומי הטיפול באסתטיקה הדנטלית שאנו מציעים.</p>
+      <h2>המרפאה והטיפולים שלנו</h2>
+      <p>הצצה למרפאת DMC — הסביבה, הצוות והטיפול האישי של ד״ר מטאנס.</p>
     </div>
-    <div class="gallery">
-      <figure><img src="assets/veneers.webp" alt="ציפויי חרסינה לשיניים" loading="lazy"><figcaption>ציפויי חרסינה</figcaption></figure>
-      <figure><img src="assets/whitening.jpg" alt="הלבנת שיניים" loading="lazy"><figcaption>הלבנת שיניים</figcaption></figure>
-      <figure><img src="assets/aligners.webp" alt="יישור שיניים שקוף" loading="lazy"><figcaption>יישור שקוף</figcaption></figure>
-      <figure><img src="assets/crowns.webp" alt="כתרי זרקוניה" loading="lazy"><figcaption>כתרי זרקוניה</figcaption></figure>
-      <figure><img src="assets/implants.webp" alt="השתלות שיניים" loading="lazy"><figcaption>השתלות שיניים</figcaption></figure>
-      <figure><img src="assets/laser.webp" alt="רפואת שיניים בלייזר" loading="lazy"><figcaption>רפואת שיניים בלייזר</figcaption></figure>
-      <figure><img src="assets/dental.webp" alt="טיפולי שיניים מתקדמים" loading="lazy"><figcaption>טיפולים מתקדמים</figcaption></figure>
-      <figure><img src="assets/preserve.webp" alt="טיפולי שיניים משמרים" loading="lazy"><figcaption>טיפולים משמרים</figcaption></figure>
+
+    <!-- clinic environment (landscape) -->
+    <div class="gallery-wide">
+      <figure><img src="assets/clinic-room.jpg" alt="חדר הטיפולים במרפאת DMC" loading="lazy"><figcaption>חדר הטיפולים</figcaption></figure>
+      <figure><img src="assets/clinic-reception.jpg" alt="קבלת הלקוחות במרפאת DMC" loading="lazy"><figcaption>קבלת המרפאה</figcaption></figure>
     </div>
+
+    <!-- treatment moments (portrait) -->
+    <div class="gallery-portrait">
+      <figure><img src="assets/treatment-1.jpg" alt="ד״ר מטאנס מטפל במטופלת" loading="lazy"><figcaption>טיפול אישי</figcaption></figure>
+      <figure><img src="assets/treatment-2.jpg" alt="טיפול אסתטי במרפאת DMC" loading="lazy"><figcaption>ליווי לאורך הטיפול</figcaption></figure>
+      <figure><img src="assets/treatment-3.jpg" alt="ד״ר מטאנס בעבודתו" loading="lazy"><figcaption>דיוק מקצועי</figcaption></figure>
+      <figure><img src="assets/treatment-4.jpg" alt="טיפול במרפאת ד״ר מטאנס" loading="lazy"><figcaption>יחס אישי</figcaption></figure>
+    </div>
+
     <p class="disclaimer">התמונות מוצגות להמחשה. תוצאות הטיפול עשויות להשתנות בין מטופל למטופל, וכל טיפול מותנה בפגישת ייעוץ ובדיקה מקצועית מקדימה.</p>
   </div>
 </section>
