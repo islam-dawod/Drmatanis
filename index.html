@@ -68,6 +68,8 @@
 
   /* ===== HERO (video bg) ===== */
   .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:#241238}
+  .hero-media{position:absolute;inset:0;z-index:0;overflow:hidden}
+  .m-only{display:none}
   .hero-video{position:absolute;inset:0;z-index:0;pointer-events:none}
   .hero-video iframe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100vw;height:56.25vw;min-height:100%;min-width:177.77svh;border:0}
   .hero-poster{position:absolute;inset:0;z-index:0;background:radial-gradient(120% 90% at 70% 20%,#6d38a1,#2a1442 70%)}
@@ -224,6 +226,7 @@
   .wa-float svg{width:30px;height:30px;color:#fff}
 
   /* responsive */
+  /* tablets / small desktop — grids only, hero stays overlay */
   @media(max-width:980px){
     body{font-size:17px}
     .process{grid-template-columns:1fr 1fr}
@@ -232,16 +235,41 @@
     .top-phone{display:none}
     .hero-video iframe{min-width:100vw;min-height:100svh;height:100svh;width:auto}
   }
+
+  /* ===== MOBILE (<=768): STACK — clean video on top, text in its own zone below ===== */
+  @media(max-width:768px){
+    .hero{flex-direction:column;min-height:auto;align-items:stretch;background:#160a26}
+    .hero-media{position:relative;inset:auto;height:50svh;width:100%;flex:none}
+    .hero-video{pointer-events:none}
+    .hero-video iframe{width:calc(50svh * 1.78);height:50svh;min-width:100vw;min-height:0;left:50%;top:50%;transform:translate(-50%,-50%)}
+    /* video's own captions sit centered; fade the bottom into the text zone, keep video itself clean */
+    .hero-overlay{background:linear-gradient(to bottom,rgba(12,5,26,.10) 0%,rgba(12,5,26,0) 40%,rgba(12,5,26,.35) 80%,#160a26 100%)}
+    .hero .wrap{position:relative;z-index:2;width:100%;padding:30px 22px 42px;background:#160a26}
+    .hero-content{max-width:none}
+    .hero-logo{height:44px;margin-bottom:16px}   /* ~30% smaller */
+    .hero .eyebrow{font-size:11px}
+    .hero h1{font-size:clamp(26px,6.6vw,34px);margin:10px 0 14px;line-height:1.22}
+    .hero-stars{margin-bottom:18px}
+    .hero p.sub{font-size:16px;margin-bottom:22px}
+    .hero-trust{margin-top:20px;font-size:13px}
+    .d-only{display:none}
+    .m-only{display:inline}
+    .scroll-cue{display:none}
+  }
   @media(max-width:560px){
     .process{grid-template-columns:1fr}
     .t-grid{grid-template-columns:1fr 1fr}
-    .hero{align-items:flex-end}
-    .hero .wrap{padding-block:150px 60px}
-    .hero-logo{height:44px;margin-bottom:22px}
-    .hero h1{font-size:clamp(28px,8vw,40px)}
+    .clinic-media{grid-auto-rows:120px}
+  }
+  /* ===== small phones (<=430): mobile-first tuning ===== */
+  @media(max-width:430px){
+    .hero-media{height:44svh}
+    .hero-video iframe{width:calc(44svh * 1.78);height:44svh}
+    .hero h1{font-size:25px}
     .hero .cta{flex-direction:column}
     .hero .cta .btn{width:100%}
-    .clinic-media{grid-auto-rows:120px}
+    .t-grid{grid-template-columns:1fr}
+    .section-head p{font-size:16px}
   }
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.scroll-cue{animation:none}}
 </style>
@@ -261,16 +289,18 @@
 
 <!-- ===== HERO ===== -->
 <section class="hero" id="top">
-  <div class="hero-poster"></div>
-  <div class="hero-video">
-    <iframe src="https://www.youtube.com/embed/8yS08j5Vr9c?autoplay=1&mute=1&controls=0&loop=1&playlist=8yS08j5Vr9c&modestbranding=1&playsinline=1&rel=0&showinfo=0&disablekb=1" title="ENDYMED 3DEEP RF" allow="autoplay; encrypted-media" tabindex="-1" aria-hidden="true"></iframe>
+  <div class="hero-media">
+    <div class="hero-poster"></div>
+    <div class="hero-video">
+      <iframe src="https://www.youtube.com/embed/8yS08j5Vr9c?autoplay=1&mute=1&controls=0&loop=1&playlist=8yS08j5Vr9c&modestbranding=1&playsinline=1&rel=0&showinfo=0&disablekb=1" title="ENDYMED 3DEEP RF" allow="autoplay; encrypted-media" tabindex="-1" aria-hidden="true"></iframe>
+    </div>
+    <div class="hero-overlay"></div>
   </div>
-  <div class="hero-overlay"></div>
   <div class="wrap">
     <div class="hero-content">
       <img class="hero-logo" src="assets/logo.png" alt="DR. MOEEN AESTHETICS" />
       <span class="eyebrow">ENDYMED 3DEEP® RF</span>
-      <h1>הדרך המתקדמת למיצוק העור ולהצערת הפנים — <b>ללא ניתוח</b></h1>
+      <h1><span class="d-only">הדרך המתקדמת למיצוק העור ולהצערת הפנים — <b>ללא ניתוח</b></span><span class="m-only">מיצוק והצערת העור <b>ללא ניתוח</b></span></h1>
       <div class="hero-stars"><span class="st">★★★★★</span> <a href="https://www.drmatanis.com/%D7%97%D7%95%D7%95%D7%AA-%D7%93%D7%A2%D7%AA" target="_blank" rel="noopener">מטופלים ממליצים</a></div>
       <p class="sub">טכנולוגיית ENDYMED משתמשת באנרגיית RF מתקדמת לחימום מבוקר של שכבות העור, לעידוד ייצור קולגן טבעי ולשיפור מראה העור.</p>
       <div class="cta">
