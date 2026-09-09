@@ -727,7 +727,9 @@
     function computeResult(){
       var score = 0, hard3 = false;
       answers.forEach(function(a){ score += (a.fit||0); if(a.hard3) hard3 = true; });
-      var r = hard3 ? 3 : (score >= 4 ? 1 : (score >= 1 ? 2 : 3));
+      // hard3 = significant excess skin / significant skin folding -> not suitable for the non-surgical device.
+      // Only these clearly-unsuitable cases are screened out (no data collected); everyone else is a fit or a doctor exam.
+      var r = hard3 ? 3 : (score >= 4 ? 1 : 2);
       renderResult(r);
     }
 
@@ -740,8 +742,22 @@
       var conf = {
         1:{cls:'r1', icon:'<path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/>', h:'ייתכן שהטיפול מתאים לך', m:'לפי תשובותיך, ייתכן שטיפול לא־ניתוחי להפחתת שומן מקומי ולמיצוק מתאים לך. מומלץ להשלים בדיקת התאמה עם הצוות הרפואי.', cta:'לקביעת בדיקת התאמה', tag:'התאמה אפשרית'},
         2:{cls:'r2', icon:'<circle cx="12" cy="12" r="9"/><path d="M12 8.2v5.2M12 16.6v.01" stroke-linecap="round"/>', h:'נדרשת בדיקת רופא', m:'התשובות אינן מאפשרות לקבוע אם טיפול במכשיר יספיק. ד״ר מטאנס יבחן את כמות השומן, מצב העור ורמת הרפיון וימליץ על האפשרות המתאימה.', cta:'לתיאום בדיקת רופא', tag:'בדיקת רופא'},
-        3:{cls:'r3', icon:'<path d="M12 3.5l8.5 15H3.5z" stroke-linejoin="round"/><path d="M12 10v4M12 16.6v.01" stroke-linecap="round"/>', h:'מומלץ ייעוץ רפואי אישי', m:'לפי תשובותיך ייתכן שקיים רפיון או עודפי עור שטיפול לא־ניתוחי לבדו לא בהכרח יפתור. נשמח לבחון יחד, בייעוץ אישי, את האפשרויות הלא־ניתוחיות המתאימות עבורך ואת הציפיות מהתהליך.', cta:'לתיאום ייעוץ אישי', tag:'ייעוץ אישי'}
+        3:{cls:'r3', icon:'<path d="M12 3.5l8.5 15H3.5z" stroke-linejoin="round"/><path d="M12 10v4M12 16.6v.01" stroke-linecap="round"/>', h:'ייתכן שנדרש פתרון כירורגי', m:'לפי תשובותיך, ייתכן שקיימים עודפי עור או רפיון משמעותי שטיפול לא־ניתוחי במכשיר אינו פותר, ושבמצב כזה נדרש פתרון כירורגי. המרפאה מתמחה בטיפולים לא־ניתוחיים בלבד ואינה מבצעת ניתוחים — לכן במקרה זה מומלץ להתייעץ עם מנתח/רופא מתאים. תודה על מילוי השאלון.', tag:'לא מתאים למכשיר'}
       }[r];
+
+      // Outcome 3: clearly unsuitable for the non-surgical device -> inform + stop the funnel. No data is collected.
+      if(r === 3){
+        stage.innerHTML =
+          '<div class="q-screen q-result '+conf.cls+'">' +
+            '<div class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">'+conf.icon+'</svg></div>' +
+            '<h3>'+conf.h+'</h3>' +
+            '<p class="rmsg">'+conf.m+'</p>' +
+            '<div class="q-disc" style="margin-top:14px">התוצאה מבוססת על תשובותיך ואינה מהווה אבחון או ייעוץ רפואי.</div>' +
+            '<div class="q-nav" style="justify-content:center;margin-top:20px"><button class="q-back" id="qRestart">להתחלת השאלון מחדש</button></div>' +
+          '</div>';
+        document.getElementById('qRestart').onclick = renderIntro;
+        return;
+      }
 
       stage.innerHTML =
         '<div class="q-screen q-result '+conf.cls+'">' +
